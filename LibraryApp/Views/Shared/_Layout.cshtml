@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] – University Library</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="brand" asp-controller="Books" asp-action="Index">📚 University Library</a>
+            <nav>
+                <a asp-controller="Books"     asp-action="Index">Books</a>
+                <a asp-controller="Authors"   asp-action="Index">Authors</a>
+                <a asp-controller="Borrowings" asp-action="Create">New Borrowing</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        @if (TempData["Success"] is string msg)
+        {
+            <div class="alert alert-success">✓ @msg</div>
+        }
+        @RenderBody()
+    </main>
+
+    <footer class="site-footer">
+        <p>University Library Management System</p>
+    </footer>
+</body>
+</html>

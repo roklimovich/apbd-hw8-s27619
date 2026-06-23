@@ -1,0 +1,34 @@
+@model Borrowing
+@{
+    ViewData["Title"] = "New Borrowing";
+}
+
+<div class="page-header">
+    <h1>New Borrowing</h1>
+    <a asp-controller="Books" asp-action="Index" class="btn btn-sm">← Back to books</a>
+</div>
+
+<div class="form-card">
+    <form asp-action="Create" method="post">
+        <div asp-validation-summary="ModelOnly" class="validation-summary"></div>
+
+        <div class="form-group">
+            <label asp-for="BookId">Book</label>
+            <select asp-for="BookId" asp-items="ViewBag.BookId" class="form-control">
+                <option value="">— Select a book —</option>
+            </select>
+            <span asp-validation-for="BookId" class="field-error"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="BorrowerName">Borrower Name</label>
+            <input asp-for="BorrowerName" class="form-control" placeholder="e.g. Anna Kowalska" />
+            <span asp-validation-for="BorrowerName" class="field-error"></span>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Record Borrowing</button>
+            <a asp-controller="Books" asp-action="Index" class="btn btn-outline">Cancel</a>
+        </div>
+    </form>
+</div>

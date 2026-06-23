@@ -1,0 +1,249 @@
+/* ───────────────────────────────────────────────
+   University Library – site.css
+   ─────────────────────────────────────────────── */
+
+:root {
+    --navy:   #1a2744;
+    --gold:   #c9a84c;
+    --cream:  #faf8f3;
+    --white:  #ffffff;
+    --gray50: #f8f9fa;
+    --gray200:#e9ecef;
+    --gray500:#6c757d;
+    --gray800:#343a40;
+    --green:  #2d6a4f;
+    --orange: #e07b39;
+    --danger: #c0392b;
+    --radius: 6px;
+    --shadow: 0 1px 4px rgba(0,0,0,.10);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Georgia', serif;
+    background: var(--cream);
+    color: var(--gray800);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ── Header ──────────────────────────────────── */
+.site-header {
+    background: var(--navy);
+    color: var(--white);
+    padding: 0 2rem;
+}
+
+.header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+}
+
+.brand {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--gold);
+    text-decoration: none;
+    letter-spacing: .03em;
+}
+
+nav a {
+    color: rgba(255,255,255,.80);
+    text-decoration: none;
+    margin-left: 1.8rem;
+    font-size: .9rem;
+    font-family: 'Arial', sans-serif;
+    transition: color .15s;
+}
+
+nav a:hover { color: var(--gold); }
+
+/* ── Main container ──────────────────────────── */
+.container {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+    flex: 1;
+}
+
+/* ── Page header row ─────────────────────────── */
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: .75rem;
+}
+
+.page-header h1 {
+    font-size: 1.8rem;
+    color: var(--navy);
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 2rem 0 1rem;
+}
+
+.section-header h2 { color: var(--navy); font-size: 1.2rem; }
+
+/* ── Buttons ─────────────────────────────────── */
+.btn {
+    display: inline-block;
+    padding: .4rem 1rem;
+    border-radius: var(--radius);
+    font-family: 'Arial', sans-serif;
+    font-size: .85rem;
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all .15s;
+    line-height: 1.4;
+}
+
+.btn-primary  { background: var(--navy); color: var(--white); border-color: var(--navy); }
+.btn-primary:hover { background: #253566; }
+
+.btn-outline  { background: transparent; color: var(--navy); border-color: var(--navy); }
+.btn-outline:hover { background: var(--navy); color: var(--white); }
+
+.btn-sm { padding: .25rem .7rem; font-size: .8rem; }
+
+/* ── Table ───────────────────────────────────── */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+    box-shadow: var(--shadow);
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.table thead { background: var(--navy); color: var(--white); }
+
+.table th, .table td {
+    padding: .65rem 1rem;
+    text-align: left;
+    font-size: .9rem;
+}
+
+.table thead th { font-family: 'Arial', sans-serif; font-size: .8rem; letter-spacing: .05em; }
+
+.table tbody tr:nth-child(even) { background: var(--gray50); }
+.table tbody tr:hover { background: #f0eee8; }
+
+/* ── Forms ───────────────────────────────────── */
+.form-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 2rem;
+    max-width: 560px;
+}
+
+.form-group { margin-bottom: 1.2rem; }
+
+.form-group label {
+    display: block;
+    font-size: .85rem;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    color: var(--navy);
+    margin-bottom: .3rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: .5rem .75rem;
+    border: 1px solid var(--gray200);
+    border-radius: var(--radius);
+    font-size: .95rem;
+    font-family: inherit;
+    background: var(--gray50);
+    transition: border-color .15s;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--navy);
+    background: var(--white);
+}
+
+.field-error { color: var(--danger); font-size: .8rem; display: block; margin-top: .2rem; }
+
+.form-actions { margin-top: 1.5rem; display: flex; gap: .75rem; }
+
+/* ── Detail card ─────────────────────────────── */
+.detail-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 1.5rem 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: .5rem 1rem;
+}
+
+.detail-grid dt { font-weight: bold; color: var(--gray500); font-size: .85rem; font-family: 'Arial', sans-serif; }
+.detail-grid dd { color: var(--gray800); }
+
+/* ── Badges ──────────────────────────────────── */
+.badge {
+    display: inline-block;
+    padding: .15rem .55rem;
+    border-radius: 12px;
+    font-size: .75rem;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+}
+
+.badge-success { background: #d1fae5; color: var(--green); }
+.badge-warning { background: #fef3c7; color: var(--orange); }
+
+/* ── Alerts ──────────────────────────────────── */
+.alert {
+    padding: .75rem 1.2rem;
+    border-radius: var(--radius);
+    margin-bottom: 1rem;
+    font-family: 'Arial', sans-serif;
+    font-size: .9rem;
+}
+
+.alert-success { background: #d1fae5; color: var(--green); border-left: 4px solid var(--green); }
+
+.validation-summary {
+    background: #fde8e8;
+    color: var(--danger);
+    border-left: 4px solid var(--danger);
+    border-radius: var(--radius);
+    padding: .75rem 1rem;
+    margin-bottom: 1rem;
+    font-size: .85rem;
+}
+
+/* ── Misc ────────────────────────────────────── */
+.empty-state { color: var(--gray500); font-style: italic; padding: 2rem 0; }
+.mono { font-family: 'Courier New', monospace; font-size: .85rem; }
+
+/* ── Footer ──────────────────────────────────── */
+.site-footer {
+    background: var(--navy);
+    color: rgba(255,255,255,.4);
+    text-align: center;
+    padding: .75rem;
+    font-size: .75rem;
+    font-family: 'Arial', sans-serif;
+}

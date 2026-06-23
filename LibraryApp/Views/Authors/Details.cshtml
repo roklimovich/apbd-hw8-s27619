@@ -1,0 +1,42 @@
+@model Author
+@{
+    ViewData["Title"] = Model.FullName;
+}
+
+<div class="page-header">
+    <h1>@Model.FullName</h1>
+    <a asp-action="Index" class="btn btn-sm">← Back to authors</a>
+</div>
+
+<h2>Books by this author</h2>
+
+@if (!Model.Books.Any())
+{
+    <p class="empty-state">No books recorded for this author.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>ISBN</th>
+                <th>Year</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var book in Model.Books.OrderBy(b => b.PublishedYear))
+            {
+                <tr>
+                    <td><strong>@book.Title</strong></td>
+                    <td class="mono">@book.Isbn</td>
+                    <td>@book.PublishedYear</td>
+                    <td>
+                        <a asp-controller="Books" asp-action="Details" asp-route-id="@book.Id" class="btn btn-sm">Details</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
